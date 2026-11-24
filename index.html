@@ -21,7 +21,7 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
-.turkey div {
+.turkey.div {
     box-sizing: border-box;
 }
 
@@ -31,9 +31,30 @@ html, body {
     width: 40%;
     height: 40%;
     background:var(--brown1);
+    color: var(--brown1);
+    border-radius: 50%;
+    top:40%;
+    left: 50%;
+    transform: translate(50%,0);
+    box-shadow:
+        -4vmin 14.5vmin 0 -13vmin,
+        4vmin 14.5vmin 0 -13vmin
+    
+}
+
+.wings {
+    background: var(--brown2);
+    height: 30%;
+    width: 20%;
+    border-radius: 100% 0% 100% 5%;
+    transform-origin: top right;
+    transform: rotate(-10deg);    
 
 }
 
+.wings + .wings (
+    
+)
 </style>
 
 
