@@ -9,7 +9,7 @@ html,
    corner at the center. translate pulls it back by half its own size. */
       .cartoon {
          --brown1: #753;
-         --brown2: #975;
+         --brown2: #6D3800;
          --orange1: orange;
          --orange2: darkorange;
          width: 80vmin;
@@ -106,6 +106,17 @@ html,
       /* Draw one black dot 2.5vmin left of center. With zero blur, its shadow
    makes a second dot 5vmin to the right, so the eyes are evenly spaced. */
       .eye {
+         width: 10%;
+         height: 10%;
+         background: black;
+         border-radius: 50%;
+         top: 45%;
+         left: 50%;
+         transform: translate(-50%, 0) translate(-2.5vmin, 0);
+         box-shadow: 5vmin 0
+      }
+
+      .eye2 {
          width: 10%;
          height: 10%;
          background: black;
@@ -223,27 +234,46 @@ html,
       /* STEP 6 | ALL 13 TAIL FEATHERS
    All 13 feathers overlap until their angles differ. The feather divs
    come first in the HTML, so the rest of the turkey paints over them. */
-      .tail {
-         width: 10%;
-         height: 40%;
-         background: var(--orange1);
-         border-radius: 100% / 30% 30% 170% 170%;
-         /* Put the pivot at the center of the bottom edge so the tips fan out
-    while the bases stay together. */
-         transform-origin: 50% 100%;
-         top: 30%;
-         left: 50%;
-         transform: translate(-50%, 0);
-      }
+   .tail {
+   width: 21%;
+   height: 46%;
+   background: var(--orange1);
+
+   clip-path: polygon(
+      91.3% 94.5%,
+      42.8% 96.8%,
+      25.5% 70.2%,
+      35.7% 67.3%,
+      37.9% 65.7%,
+      18.2% 44.5%,
+      14.6% 38.4%,
+      21.7% 38%,
+      5.2% 13%,
+      3.1% 7.3%,
+      8.1% 10.5%,
+      33% 29.3%,
+      43.9% 38.6%,
+      44% 39.3%,
+      40.3% 40.5%,
+      65.5% 65%,
+      57.8% 67.7%,
+      57.9% 68.4%,
+      87.5% 90.5%
+   );
+
+   transform-origin: 50% 100%;
+   top: 27%;
+   left: 50%;
+}
 
       /* nth-child counts all children of .cartoon in HTML order. Since the
    feathers come first, odd and even alternate the feather colors. */
       .tail:nth-child(odd) {
-         background: var(--orange1);
+         background: var(--orange2);
       }
 
       .tail:nth-child(even) {
-         background: var(--orange2);
+         background: var(--orange1);
       }
 
       /* Each transform replaces the base transform, so keep translate to
@@ -301,3 +331,62 @@ html,
       .tail:nth-child(13) {
          transform: translate(-50%, 0) rotate(-102deg);
       }
+
+
+      /* ZEUS ROBE */
+.robe {
+   width: 47%;
+   height: 40%;
+   background: #f5f0df;
+   top: 43%;
+   left: 50%;
+   transform: translate(-50%, 0);
+
+   clip-path: polygon(
+      25% 0%,
+      75% 0%,
+      90% 20%,
+      100% 100%,
+      0% 100%,
+      10% 20%
+   );
+
+   background-image:
+      linear-gradient(
+         110deg,
+         transparent 0%,
+         transparent 40%,
+         #d6ad45 41%,
+         #d6ad45 45%,
+         transparent 46%
+      );
+}
+
+/* GOLD SHOULDER SASH */
+.robe::before {
+   content: "";
+   position: absolute;
+   width: 25%;
+   height: 110%;
+   background: #d6ad45;
+   top: -5%;
+   left: 35%;
+   transform: rotate(-25deg);
+   clip-path: polygon(
+      20% 0%,
+      80% 0%,
+      100% 100%,
+      50% 100%
+   );
+}
+
+/* GOLD BOTTOM TRIM */
+.robe::after {
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 5%;
+   background: #d6ad45;
+   bottom: 0;
+   left: 0;
+}
